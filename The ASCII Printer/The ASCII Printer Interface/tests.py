@@ -2,27 +2,7 @@ import os
 
 from hstest import StageTest, CheckResult, WrongAnswer, TestCase
 
-# GOPHER = '''|
-#
-#          ,_---~~~~~----._
-#   _,,_,*^____      _____``*g*"*,
-#  / __/ /'     ^.  /      \ ^@q   f
-# [  @f | @))    |  | @))   l  0 _/
-#  \`/   \~____ / __ \_____/    \/
-#   |           _l__l_           I
-#   }          [______]           I
-#   ]            | | |            |
-#   ]             ~ ~             |
-#   |                            |
-#    |                           |
-#             GOPHER'''
-#
-# inputs = [GOPHER]
-#
-# with open("ascii_art.txt", "w", encoding="utf8") as f:
-#     f.write(GOPHER)
-
-inputs = ['''|
+GOPHER = '''|
 
          ,_---~~~~~----._
   _,,_,*^____      _____``*g*"*,
@@ -36,13 +16,27 @@ inputs = ['''|
   |                            |
    |                           |
             GOPHER'''
-]
 
 inputs = [GOPHER]
 
 with open("ascii_art.txt", "w", encoding="utf8") as f:
     f.write(GOPHER)
 
+# inputs = ['''|
+#
+#          ,_---~~~~~----._
+#   _,,_,*^____      _____``*g*"*,
+#  / __/ /'     ^.  /      \ ^@q   f
+# [  @f | @))    |  | @))   l  0 _/
+#  \`/   \~____ / __ \_____/    \/
+#   |           _l__l_           I
+#   }          [______]           I
+#   ]            | | |            |
+#   ]             ~ ~             |
+#   |                            |
+#    |                           |
+#             GOPHER'''
+# ]
 
 FILENAME = "ascii_art.txt"
 
