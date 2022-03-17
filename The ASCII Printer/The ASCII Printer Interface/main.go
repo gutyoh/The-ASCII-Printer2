@@ -1,7 +1,6 @@
 package main
 
 import (
-    "bufio"
     "fmt"
     "log"
     "os"
@@ -24,9 +23,6 @@ type ? interface {
 }
 
 func main() {
-    // DO NOT delete the following line! - it creates the Ascii Art:
-    createAsciiArt()
-
     // Create the variable 'a' of the AsciiPrinter interface type below:
     var a ?
 
@@ -35,18 +31,4 @@ func main() {
 
     // Call the PrintAscii() method on the 'a' AsciiPrinter interface below:
     a.?
-}
-
-// DO NOT DELETE! createAsciiArt() is a helper that generates the ascii art
-func createAsciiArt() {
-    file, err := os.Create("ascii_art.txt")
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    scanner := bufio.NewScanner(os.Stdin)
-    for i := 0; i < 14; i++ {
-        scanner.Scan()
-        fmt.Fprintln(file, scanner.Text())
-    }
 }
