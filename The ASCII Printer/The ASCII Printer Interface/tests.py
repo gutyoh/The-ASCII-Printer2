@@ -3,7 +3,6 @@ import os
 from hstest import StageTest, CheckResult, WrongAnswer, TestCase
 
 GOPHER = '''|
-
          ,_---~~~~~----._
   _,,_,*^____      _____``*g*"*,
  / __/ /'     ^.  /      \ ^@q   f
@@ -15,47 +14,28 @@ GOPHER = '''|
   ]             ~ ~             |
   |                            |
    |                           |
-            GOPHER'''
+            GOPHER
+'''
 
 inputs = [GOPHER]
-
-with open("ascii_art.txt", "w", encoding="utf8") as f:
-    f.write(GOPHER)
-
-# inputs = ['''|
-#
-#          ,_---~~~~~----._
-#   _,,_,*^____      _____``*g*"*,
-#  / __/ /'     ^.  /      \ ^@q   f
-# [  @f | @))    |  | @))   l  0 _/
-#  \`/   \~____ / __ \_____/    \/
-#   |           _l__l_           I
-#   }          [______]           I
-#   ]            | | |            |
-#   ]             ~ ~             |
-#   |                            |
-#    |                           |
-#             GOPHER'''
-# ]
 
 FILENAME = "ascii_art.txt"
 
 
 class TestAdmissionProcedure(StageTest):
     def generate(self):
-        return [TestCase(stdin=[test], attach=[test]) for test in inputs]
+        return [TestCase(stdin=GOPHER, attach=GOPHER)]
 
-    def check(self, reply: str, attach: list):
+    def check(self, reply: str, clue: str):
         if not os.path.exists(FILENAME):
             raise WrongAnswer(f"Cannot find file {FILENAME}")
 
-        with open(FILENAME, "r") as f:
-            content = f.read().strip()
-            if content != attach[0]:
-                raise WrongAnswer(
-                    f'Invalid content of {FILENAME} file, got "{content}" want "{attach[0]}"'
-                )
+        if clue != reply:
+            raise WrongAnswer(
+                f"Your program printed:\n{reply}\n"
+                f"Expected:\n{clue}\n")
 
+        print(clue)
         return CheckResult.correct()
 
 
