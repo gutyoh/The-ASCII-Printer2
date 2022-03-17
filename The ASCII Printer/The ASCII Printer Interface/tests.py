@@ -30,7 +30,7 @@ class TestAdmissionProcedure(StageTest):
         if not os.path.exists(FILENAME):
             raise WrongAnswer(f"Cannot find file {FILENAME}")
 
-        if clue != reply:
+        if clue.rstrip() != reply.rstrip():
             raise WrongAnswer(
                 f"Your program printed:\n{reply}\n"
                 f"Expected:\n{clue}\n")
