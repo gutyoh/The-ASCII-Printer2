@@ -6,10 +6,10 @@ import (
     "os"
 )
 
-type FileName string
+type File string
 
 // Do not change the contents of the PrintAscii() method!
-func (f FileName) PrintAscii() {
+func (f File) PrintAscii() {
     b, err := os.ReadFile(string(f))
     if err != nil {
         log.Fatal(err)
@@ -27,7 +27,7 @@ func main() {
     var a ?
 
     // Open and read the file "ascii_art.txt" with the 'a' AsciiPrinter interface:
-    a = FileName("ascii_art.txt")
+    a = File("ascii_art.txt")
 
     // Call the PrintAscii() method on the 'a' AsciiPrinter interface below:
     a.?
